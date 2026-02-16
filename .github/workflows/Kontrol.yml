@@ -6,7 +6,7 @@ on:
 jobs:
   run-scripts:
     runs-on: ubuntu-latest
-    steps:name: Step 5 Çalıştır (Paralel)
+    steps: Step 5 Çalıştır (Paralel)
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
