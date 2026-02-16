@@ -59,6 +59,21 @@ jobs:
           
           echo "✅ Tüm scriptler tamamlandı.."
 
+      - name: Commit and Push All JSONs
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git config status.showUntrackedFiles no
+          git add **/*.json || echo "No JSON files"
+          git commit -m "Tüm JSON dosyaları güncellendi [auto]" || echo "No changes"
+          
+          # Retry push up to 5 times with 10s delay
+          for i in {1..5}; do
+            git push origin main && break
+            echo "Push failed, retrying in 10s..."
+            sleep 10
+          done
+
       - name: Sync All Outputs to Private Repo
         run: |
           git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/opitiopiti/sistemkontrolm3u.git privaate_m3u8file
