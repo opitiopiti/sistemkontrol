@@ -1,15 +1,5 @@
 name: Step 5 Çalıştır (Paralel)
-
-on:
-  workflow_dispatch:  # Manuel olarak tetiklenmesi için
-
-jobs:
-  run-scripts:
-    runs-on: ubuntu-latest
-    steps: Step 5 Çalıştır (Paralel)
-    env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
-
+    
 on:
   workflow_dispatch:  # Manuel olarak tetiklenmesi için
 
