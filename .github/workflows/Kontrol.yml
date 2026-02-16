@@ -59,61 +59,20 @@ jobs:
           
           echo "✅ Tüm scriptler tamamlandı.."
 
-      - name: Clone the hidden repo (sistemkontrolm3u)
+      - name: Sync All Outputs to Private Repo
         run: |
-          git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/opitiopiti/sistemkontrolm3u.git
-          cd sistemkontrolm3u
-
-      - name: Sync outputs to systemkontrolm3u
-        run: |
-          # Dizigom
-          [ -d "dizigom" ] && rsync -a dizigom/ sistemkontrolm3u/dizigom/
+          git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/opitiopiti/sistemkontrolm3u.git privaate_m3u8file
           
-          # Anizm
-          [ -d "anizm" ] && rsync -a anizm/ sistemkontrolm3u/anizm/
+          # Tüm dosyaları kopyalıyoruz
+          cp -r * privaate_m3u8file/ || echo "No files to copy"
           
-          # AnimeNoSub
-          [ -d "animenosub" ] && rsync -a animenosub/ sistemkontrolm3u/animenosub/
+          cd privaate_m3u8file
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
           
-          # SetFilmİzleDizi
-          [ -d "setfilmizledizi" ] && rsync -a setfilmizledizi/ sistemkontrolm3u/setfilmizledizi/
+          # Tüm dosyaları commit et
+          git add . || echo "No files to commit"
+          git commit -m "Auto update with all files" || echo "No changes to commit"
           
-          # DiziYo
-          [ -d "diziyo" ] && rsync -a diziyo/ sistemkontrolm3u/diziyo/
-          
-          # DiziPall
-          [ -d "dizipall" ] && rsync -a dizipall/ sistemkontrolm3u/dizipall/
-          
-          # HDFilmsite
-          [ -d "yereldiziler" ] && rsync -a yereldiziler/ sistemkontrolm3u/yereldiziler/
-          
-          # HDFilmCehennemi
-          [ -d "hdfilmcehennemi" ] && rsync -a hdfilmcehennemi/ sistemkontrolm3u/hdfilmcehennemi/
-          
-          # YabancıDiziler
-          [ -d "yabancidiziler" ] && rsync -a yabancidiziler/ sistemkontrolm3u/yabancidiziler/
-          
-          # SezonlukDİzi
-          [ -d "sdizi" ] && rsync -a sdizi/ sistemkontrolm3u/sdizi/
-          
-          # Dizipal
-          [ -d "dizipal" ] && rsync -a dizipal/ sistemkontrolm3u/dizipal/
-          
-          # AnimeHeaven
-          [ -d "animeheaven" ] && rsync -a animeheaven/ sistemkontrolm3u/animeheaven/
-          
-          # Dizilife
-          [ -d "dizilife" ] && rsync -a dizilife/ sistemkontrolm3u/dizilife/
-
-      - name: Commit and Push Changes to Repo
-        run: |
-          cd sistemkontrolm3u
-          
-          # Git add all changes
-          git add .
-          
-          # Commit the changes
-          git commit -m "Sync updated outputs from scripts" || echo "No changes to commit"
-          
-          # Push the changes
-          git push https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/opitiopiti/sistemkontrolm3u.git
+          # Değişiklikleri push et
+          git push origin main
