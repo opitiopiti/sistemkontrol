@@ -67,43 +67,43 @@ jobs:
       - name: Sync outputs to systemkontrolm3u
         run: |
           # Dizigom
-          [ -d "sistemkontrolm3u/dizigom" ] && rsync -a dizigom/ sistemkontrolm3u/dizigom/
+          [ -d "dizigom" ] && rsync -a dizigom/ sistemkontrolm3u/dizigom/
           
           # Anizm
-          [ -d "sistemkontrolm3u/anizm" ] && rsync -a anizm/ sistemkontrolm3u/anizm/
+          [ -d "anizm" ] && rsync -a anizm/ sistemkontrolm3u/anizm/
           
           # AnimeNoSub
-          [ -d "sistemkontrolm3u/animenosub" ] && rsync -a animenosub/ sistemkontrolm3u/animenosub/
+          [ -d "animenosub" ] && rsync -a animenosub/ sistemkontrolm3u/animenosub/
           
           # SetFilmİzleDizi
-          [ -d "sistemkontrolm3u/setfilmizledizi" ] && rsync -a setfilmizledizi/ sistemkontrolm3u/setfilmizledizi/
+          [ -d "setfilmizledizi" ] && rsync -a setfilmizledizi/ sistemkontrolm3u/setfilmizledizi/
           
           # DiziYo
-          [ -d "sistemkontrolm3u/diziyo" ] && rsync -a diziyo/ sistemkontrolm3u/diziyo/
+          [ -d "diziyo" ] && rsync -a diziyo/ sistemkontrolm3u/diziyo/
           
           # DiziPall
-          [ -d "sistemkontrolm3u/dizipall" ] && rsync -a dizipall/ sistemkontrolm3u/dizipall/
+          [ -d "dizipall" ] && rsync -a dizipall/ sistemkontrolm3u/dizipall/
           
           # HDFilmsite
-          [ -d "sistemkontrolm3u/yereldiziler" ] && rsync -a yereldiziler/ sistemkontrolm3u/yereldiziler/
+          [ -d "yereldiziler" ] && rsync -a yereldiziler/ sistemkontrolm3u/yereldiziler/
           
           # HDFilmCehennemi
-          [ -d "sistemkontrolm3u/hdfilmcehennemi" ] && rsync -a hdfilmcehennemi/ sistemkontrolm3u/hdfilmcehennemi/
+          [ -d "hdfilmcehennemi" ] && rsync -a hdfilmcehennemi/ sistemkontrolm3u/hdfilmcehennemi/
           
           # YabancıDiziler
-          [ -d "sistemkontrolm3u/yabancidiziler" ] && rsync -a yabancidiziler/ sistemkontrolm3u/yabancidiziler/
+          [ -d "yabancidiziler" ] && rsync -a yabancidiziler/ sistemkontrolm3u/yabancidiziler/
           
           # SezonlukDİzi
-          [ -d "sistemkontrolm3u/sdizi" ] && rsync -a sdizi/ sistemkontrolm3u/sdizi/
+          [ -d "sdizi" ] && rsync -a sdizi/ sistemkontrolm3u/sdizi/
           
           # Dizipal
-          [ -d "sistemkontrolm3u/dizipal" ] && rsync -a dizipal/ sistemkontrolm3u/dizipal/
+          [ -d "dizipal" ] && rsync -a dizipal/ sistemkontrolm3u/dizipal/
           
           # AnimeHeaven
-          [ -d "sistemkontrolm3u/animeheaven" ] && rsync -a animeheaven/ sistemkontrolm3u/animeheaven/
+          [ -d "animeheaven" ] && rsync -a animeheaven/ sistemkontrolm3u/animeheaven/
           
           # Dizilife
-          [ -d "sistemkontrolm3u/dizilife" ] && rsync -a dizilife/ sistemkontrolm3u/dizilife/
+          [ -d "dizilife" ] && rsync -a dizilife/ sistemkontrolm3u/dizilife/
 
       - name: Commit and Push Changes to Repo
         run: |
