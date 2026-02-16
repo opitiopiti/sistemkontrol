@@ -6,6 +6,8 @@ on:
 jobs:
   run-scripts:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - name: Checkout public repo (main)
         uses: actions/checkout@v4
