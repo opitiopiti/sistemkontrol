@@ -34,8 +34,8 @@ jobs:
           set +e
           
           echo "🔄 Batch 1 başlıyor (HDFilmSite & AnimeHeaven & AnimeNoSub & SetFilmİzle & Diziyo)"
-          ( python private_py/series/hdfilmsite/yenibolumler.py || true ) &
-          ( python private_py/anime/ingilizce/animeheaven/yenibolumler.py || true ) &
+          # ( python private_py/series/hdfilmsite/yenibolumler.py || true ) &
+          # ( python private_py/anime/ingilizce/animeheaven/yenibolumler.py || true ) &
           ( python private_py/anime/ingilizce/animenosub/yenibolumler.py || true ) &
           ( python private_py/series/setfilmizledizi/yenibolumler.py || true ) &
           ( python private_py/series/diziyo/yenibolumler.py || true ) &
@@ -52,7 +52,7 @@ jobs:
           echo "🔄 Batch 3 başlıyor (HDFilmCehennemi & Dizilife)"
           
           ( python private_py/series/hdfilmcehennemi/yenibolumler.py || true ) &          
-          ( python private_py/series/dizilife/yenibolumler.py || true ) &
+          # ( python private_py/series/dizilife/yenibolumler.py || true ) &
           # ( python private_py/anime/anizm/yenibolumler.py || true ) & # Kod hatası mevcut şuanda çözmeye gerek yok
           
           wait
